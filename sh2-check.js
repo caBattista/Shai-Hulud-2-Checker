@@ -1,5 +1,4 @@
 import fs from 'fs';
-import { version } from 'os';
 
 const packageLock = JSON.parse(fs.readFileSync('package-lock.json', 'utf8'));
 const compromised = JSON.parse(fs.readFileSync('compromised-packages.json', 'utf8'));
@@ -23,7 +22,8 @@ Object.keys(packageLock.packages).forEach(pName => {
       affectedVersions: found.affectedVersions
     });
   }
-  package1.dependencies && Object.keys(package1.dependencies).forEach(depName => {
+  package1.dependencies && 
+    Object.keys(package1.dependencies).forEach(depName => {
     const dep = package1.dependencies[depName];
     console.log('- Checking:', depName, dep);
     const foundDep = compromised.packages.find(pkg => pkg.name === depName)
