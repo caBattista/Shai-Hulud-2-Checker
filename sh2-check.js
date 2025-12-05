@@ -2,7 +2,7 @@ import fs from 'fs';
 import { version } from 'os';
 
 const packageLock = JSON.parse(fs.readFileSync('package-lock.json', 'utf8'));
-const compromised = JSON.parse(fs.readFileSync('Shai-Hulud-Checker/compromised-packages.json', 'utf8'));
+const compromised = JSON.parse(fs.readFileSync('compromised-packages.json', 'utf8'));
 
 const affectedPackages = [];
 
